@@ -24,3 +24,6 @@ How to run project- Answer the prompts, after the prompts have been answered a p
 How to use Project -  if a user needs a password, they can use the application to generate a password.
 
 Credits- All the SMU training files
+
+
+![alt text](final_product.PNG "pick of final work")
