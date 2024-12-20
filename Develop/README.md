@@ -33,7 +33,7 @@ THEN the password is either displayed in an alert or written to the page
 ## Mock-Up
 
 The following image shows my web application's appearance and functionality:
-![password gen](/Assets/PassSpawn.png)
+![password gen](/Images/PassSpawn.png)
 
 
 The Following link allows users to test the appearance and functionality.
