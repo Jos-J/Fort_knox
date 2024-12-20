@@ -1,43 +1,44 @@
 // Assignment Code
-// var generateBtn = document.querySelector("#generate");
+var generateBtn = document.querySelector("#generate-btn");  // selector
+const PasswordBox = document.getElementById("password");   // selector
 
-// // Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
+const length = 12; // Set the password length
+const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const lowerCase = "abcdefghijklmnopqrstuvwxyz";
+const number = "0123456789";
+const symbol = "@#$%^&*()=~|}{[]<>/-=_";
 
-//   passwordText.value = password;
+// Combine all possible characters into one string
+const allChars = upperCase + lowerCase + number + symbol;
 
-// }
+// Function to create password
+function createPassword() {
+  let password = "";
+  
+  // Ensure the password includes at least one of each character type
+  password += upperCase[Math.floor(Math.random() * upperCase.length)];
+  password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
+  password += number[Math.floor(Math.random() * number.length)];
+  password += symbol[Math.floor(Math.random() * symbol.length)];
 
-// // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
+  // Add random characters until password length reaches the specified length
+  while (password.length < length) {
+    password += allChars[Math.floor(Math.random() * allChars.length)];
+  }
 
+  // Update the password input field with the generated password
+  PasswordBox.value = password;
+}
 
+// Function to copy password to clipboard
+function copyPassword() {
+  PasswordBox.select();
+  document.execCommand("copy");
+}
 
-      const PasswordBox = document.getElementById("password")
-      const lenght = 12;
-      const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-      const lowerCase = "abcdefghijklmnopqrstuvwxyz";
-      const number = "0123456789";
-      const symbol= "@#$%^&*()=~|}{[]<>/-=_";
+// Add event listener to generate button
+generateBtn.addEventListener("click", createPassword);
 
-      const allChars = upperCase + lowerCase + number + symbol;
-      
-      function createPassword(){
-        let password = "";
-        password += upperCase[Math.floor(Math.random() * upperCase.length)];
-        password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
-        password += number[Math.floor(Math.random() * number.length)];
-        password += symbol[Math.floor(Math.random() * symbol.length)];
-
-        while(lenght > password.length){
-          password += allChars[Math.floor(Math.random() * allChars.length)];
-        }
-        PasswordBox.value = password;
-      }
-
-      function copyPassword(){
-        PasswordBox.select();
-        document.execCommand("copy");
-      }
+// Add event listener to copy button
+const copyBtn = document.getElementById("copy-btn"); // 
+copyBtn.addEventListener("click", copyPassword);

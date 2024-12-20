@@ -11,14 +11,15 @@
     <div class="container">
       <h1> Generate a <br><span> Random Password</h1></span>
       <div class="display">
-        <input type="text" id="Password" placeholder="Password">
-        <img src="/Images/copy.png" onclick="copyPassword()"> 
+        
+        <input type="text" id="password" placeholder="Password" readonly>
+        <!-- Added an 'id' for the image to select it in JS -->
+        <img src="/Images/copy.png" id="copy-btn" alt="Copy Password" onclick="copyPassword()"> 
       </div>
-      <button onclick="createPassword()"><img src="/Images/generate.png"> Password Spawn </button>
+      <!--  button triggers the function -->
+      <button id="generate-btn"><img src="/Images/generate.png" alt="Generate"> Password Spawn </button>
     </div>
-    
-  </footer>
-  <script src="script.js"></script>
-</body>
 
+    <script src="script.js"></script>
+  </body>
 </html>
