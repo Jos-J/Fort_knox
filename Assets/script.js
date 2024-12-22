@@ -26,19 +26,27 @@ function createPassword() {
     password += allChars[Math.floor(Math.random() * allChars.length)];
   }
 
+  // Shuffle the password to randomize the character types' positions
+  password = password.split("").sort(() => Math.random() - 0.5).join("");
+
   // Update the password input field with the generated password
   PasswordBox.value = password;
 }
 
-// Function to copy password to clipboard
-function copyPassword() {
-  PasswordBox.select();
-  document.execCommand("copy");
+// Function to copy password to clipboard using Clipboard API
+async function copyPassword() {
+  try {
+    await navigator.clipboard.writeText(PasswordBox.value); // Use Clipboard API
+    alert("Password copied to clipboard!"); // Alert on success
+  } catch (err) {
+    alert("Failed to copy password"); // Handle failure case
+  }
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", createPassword);
 
 // Add event listener to copy button
-const copyBtn = document.getElementById("copy-btn"); // 
+const copyBtn = document.getElementById("copy-btn");
 copyBtn.addEventListener("click", copyPassword);
+

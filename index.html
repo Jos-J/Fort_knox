@@ -5,21 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
-    <link rel="stylesheet" href="/Assets/style.css" />
+    <link rel="stylesheet" href="./Assets/style.css" />
   </head>
   <body>
     <div class="container">
-      <h1> Generate a <br><span> Random Password</h1></span>
+      <h1> Generate a <br><span>Random Password</span></h1> <!-- Fixed span closing -->
       <div class="display">
-        
-        <input type="text" id="password" placeholder="Password" readonly>
+        <input type="text" id="password" placeholder="Password" readonly />
         <!-- Added an 'id' for the image to select it in JS -->
-        <img src="/Images/copy.png" id="copy-btn" alt="Copy Password" onclick="copyPassword()"> 
+        <img src="./Images/copy.png" id="copy-btn" alt="Copy Password" onclick="copyPassword()" />
       </div>
-      <!--  button triggers the function -->
-      <button id="generate-btn"><img src="/Images/generate.png" alt="Generate"> Password Spawn </button>
+      <!-- Button triggers the function -->
+      <button id="generate-btn">
+        <img src="./Images/generate.png" alt="Generate"> Password Spawn
+      </button>
     </div>
 
-    <script src="/Assets/script.js"></script>
+    <script src="./Assets/script.js"></script>
   </body>
 </html>
+
